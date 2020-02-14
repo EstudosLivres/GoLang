@@ -13,6 +13,22 @@
   1. pasta src = fontes, separado por mecanismos de versionamento (github, bitbucket, gitlab...)
   1. Para criar e rodar um projeto standalone __não precisa colocar no GOPATH__, quando for criar pacotes reutilizáveis é necessário criá-los dentro do GoPath
   
+## ADD Visual Code ao ZSH:
+1. ``` $ sudo nano ~/.zshrc ```
+1. add: 
+    ```zsh
+        function code {
+            if [[ $# = 0 ]]
+            then
+                open -a "Visual Studio"
+            else
+                local argPath="$1"
+                [[ $1 = /* ]] && argPath="$1" || argPath="$PWD/${1#./}"
+                open -a "Visual Studio" "$argPath"
+            fi
+        }
+    ```
+  
 ## Primeiro código
 1. todo programa go precisa rodar dentro de um pacote
 1. cada pasta com código go só pode ter uma função main
